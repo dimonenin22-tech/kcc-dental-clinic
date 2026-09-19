@@ -81,7 +81,8 @@ function initBeforeAfterSlider() {
     if (percentage > 98) percentage = 98;
 
     currentSliderRatio = percentage;
-    beforeImage.style.width = `${percentage}%`;
+    beforeImage.style.clipPath = `inset(0 ${100 - percentage}% 0 0)`;
+    beforeImage.style.webkitClipPath = `inset(0 ${100 - percentage}% 0 0)`;
     handle.style.left = `${percentage}%`;
   };
 
@@ -108,7 +109,8 @@ function initBeforeAfterSlider() {
 
   // Оновлення при ресайзі
   window.addEventListener('resize', () => {
-    beforeImage.style.width = `${currentSliderRatio}%`;
+    beforeImage.style.clipPath = `inset(0 ${100 - currentSliderRatio}% 0 0)`;
+    beforeImage.style.webkitClipPath = `inset(0 ${100 - currentSliderRatio}% 0 0)`;
     handle.style.left = `${currentSliderRatio}%`;
   });
 }

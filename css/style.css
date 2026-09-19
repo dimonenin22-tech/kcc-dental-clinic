@@ -764,8 +764,9 @@ button {
 
 .comparison-image.image-before {
   z-index: 2;
-  width: 50%;
-  border-right: 2px solid var(--text-white);
+  width: 100%;
+  clip-path: inset(0 50% 0 0);
+  -webkit-clip-path: inset(0 50% 0 0);
 }
 
 /* Бейджі ДО та ПІСЛЯ */
@@ -808,6 +809,19 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.slider-handle::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: var(--text-white);
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.4);
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 
 .handle-button {
